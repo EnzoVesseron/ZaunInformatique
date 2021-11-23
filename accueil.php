@@ -5,12 +5,13 @@ require_once('autoload.php');
 $myPage = new WebPage("ZaunInformatique");
 
 $myPage->appendCssUrl("./styles/css/tailwind.css");
+$myPage->appendCssUrl("./styles/css/global.css");
 $myPage->appendToHead(<<<HTML
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 HTML);
 
 $myPage->appendContent(<<<HTML
-<html class="bg-gray-200 max-w-screen-2xl mx-auto" lang="fr">
+<html class="max-w-screen-2xl mx-auto" lang="fr">
     <header id="menu"></header>
     
     <body>

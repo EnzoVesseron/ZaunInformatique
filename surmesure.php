@@ -6,12 +6,14 @@ require_once("autoload.php");
 $myPage = new WebPage("Sur mesure");
 
 $myPage->appendCssUrl("./styles/css/tailwind.css");
+$myPage->appendCssUrl("./styles/css/global.css");
+$myPage->appendCssUrl("./styles/css/questionnaire.css");
 $myPage->appendToHead(<<<HTML
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 HTML);
 
 $myPage->appendContent(<<<HTML
-<html class="bg-gray-200 h-full" lang="fr">
+<html class=h-full" lang="fr">
     <header id="menu" class=""></header>
     
     <section id="body" class="flex flex-col h-full justify-center absolute top-0 w-full">
@@ -35,7 +37,8 @@ $myPage->appendContent(<<<HTML
     <script>createMenu("surmesure");</script>
 </html>
 
-HTML);
+HTML
+);
 
 echo $myPage->toHTML();
 
