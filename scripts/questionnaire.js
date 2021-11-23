@@ -102,5 +102,15 @@ function question1() {
 }
 
 function question2() {
+    repQ1 = document.querySelector("#priceInput").value
+    videElement(conteneurBody)
+    progressBar(2)
+    addTitre("Quels usages en avez vous ?")
+    addSousTitre("Sélectionnez l’usage que vous souhaitez privilégier pour votre nouveau pc")
+
+    const conteneurCards = document.createElement("div")
+    conteneurCards.className = "flex"
+    conteneurBody.appendChild(conteneurCards)
+
 
 }
