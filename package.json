@@ -1,0 +1,16 @@
+{
+  "name": "zauninformatique",
+  "version": "1.0.0",
+  "description": "Site de ZaunInformatique",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "EnzoV",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
+  }
+}
