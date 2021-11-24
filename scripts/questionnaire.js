@@ -108,9 +108,70 @@ function question2() {
     addTitre("Quels usages en avez vous ?")
     addSousTitre("Sélectionnez l’usage que vous souhaitez privilégier pour votre nouveau pc")
 
-    const conteneurCards = document.createElement("div")
-    conteneurCards.className = "flex"
-    conteneurBody.appendChild(conteneurCards)
+    const conteneurAllCards = document.createElement("div")
+    conteneurAllCards.className = "flex flex-wrap justify-center mt-10"
+    conteneurBody.appendChild(conteneurAllCards)
+
+    /*
+        Card 1
+     */
+    const conteneurCard1 = document.createElement("div")
+    conteneurCard1.className = "bg-white rounded-2xl shadow"
+    conteneurAllCards.appendChild(conteneurCard1)
+
+    const imageCard1 = document.createElement("img")
+    imageCard1.className = ""
+    imageCard1.src = "./styles/img/questionnaire/montage.png"
+    conteneurCard1.appendChild(imageCard1)
+
+    const textCard1 = document.createElement("p")
+    textCard1.className = "text-center my-10"
+    textCard1.textContent = "Montage photo / vidéo"
+    conteneurCard1.appendChild(textCard1)
 
 
+    /*
+    Card 2
+     */
+    const conteneurCard2 = document.createElement("div")
+    conteneurCard2.className = "bg-white rounded-2xl mx-20 shadow"
+    conteneurAllCards.appendChild(conteneurCard2)
+
+    const imageCard2 = document.createElement("img")
+    imageCard2.src = "./styles/img/questionnaire/jeuxvideo.png"
+    conteneurCard2.appendChild(imageCard2)
+
+    const textCard2 = document.createElement("p")
+    textCard2.className = "text-center my-10"
+    textCard2.textContent = "Jeux vidéo"
+    conteneurCard2.appendChild(textCard2)
+
+
+    /*
+    Card 3
+    */
+    const conteneurCard3 = document.createElement("div")
+    conteneurCard3.className = "bg-white rounded-2xl shadow"
+    conteneurAllCards.appendChild(conteneurCard3)
+
+    const imageCard3 = document.createElement("img")
+    imageCard3.src = "./styles/img/questionnaire/programmation.png"
+    conteneurCard3.appendChild(imageCard3)
+
+    const textCard3 = document.createElement("p")
+    textCard3.className = "text-center my-10"
+    textCard3.textContent = "Programmation"
+    conteneurCard3.appendChild(textCard3)
+
+
+    let conteneurButton = document.createElement("div")
+    conteneurButton.className = "flex justify-center mt-10"
+    conteneurBody.appendChild(conteneurButton)
+    addButtonNext(conteneurButton, question3)
+    addButtonReturn(conteneurButton, question1)
+
+}
+
+function question3() {
+    
 }
