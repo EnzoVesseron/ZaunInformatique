@@ -112,7 +112,7 @@ HTML;
     public function toHTML() : String{
         $html = <<<HTML
         <!doctype html>
-        <html lang="en">
+        <html lang="en" class="h-full">
             <head>
                 <meta charset="utf-8">
                 <title>$this->title</title>

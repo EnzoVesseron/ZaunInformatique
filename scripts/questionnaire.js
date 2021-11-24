@@ -43,7 +43,7 @@ function addTitre(textContent) {
 
 function addButtonNext(elementToAppend , questionToGo) {
     let button = document.createElement("button")
-    button.className = "shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-gradient-to-r from-yellow-500 to-red-500 text-white hover:from-red-500 hover:to-yellow-500"
+    button.className = "shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-gradient-to-r from-yellow-500 to-red-500 text-white mb-6 hover:from-red-500 hover:to-yellow-500"
     button.textContent = "Continuer"
     button.onclick = questionToGo
     elementToAppend.appendChild(button)
@@ -51,7 +51,7 @@ function addButtonNext(elementToAppend , questionToGo) {
 
 function addButtonReturn(elementToAppend, questionToGo) {
     let button = document.createElement("button")
-    button.className = "shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-white"
+    button.className = "shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-white mb-6"
     button.textContent = "Retour"
     button.onclick = questionToGo
     elementToAppend.appendChild(button)
@@ -108,6 +108,8 @@ function question2() {
     addTitre("Quels usages en avez vous ?")
     addSousTitre("Sélectionnez l’usage que vous souhaitez privilégier pour votre nouveau pc")
 
+    conteneurBody.classList.add("mt-80","md:mt-0")
+
     const conteneurAllCards = document.createElement("div")
     conteneurAllCards.className = "flex flex-wrap justify-center mt-10"
     conteneurBody.appendChild(conteneurAllCards)
@@ -116,7 +118,17 @@ function question2() {
         Card 1
      */
     const conteneurCard1 = document.createElement("div")
-    conteneurCard1.className = "bg-white rounded-2xl shadow"
+    conteneurCard1.style.cursor = "pointer"
+    conteneurCard1.className = "bg-white rounded-2xl shadow hover:bg-gray-100 hover:shadow-xl mb-10"
+    conteneurCard1.addEventListener("click", function () {
+        repQ2 = 1
+        conteneurCard1.classList.add("bg-gray-300")
+        conteneurCard1.classList.remove("hover:bg-gray-100")
+        conteneurCard2.classList.remove("bg-gray-300")
+        conteneurCard2.classList.add("hover:bg-gray-100")
+        conteneurCard3.classList.remove("bg-gray-300")
+        conteneurCard3.classList.add("hover:bg-gray-100")
+    })
     conteneurAllCards.appendChild(conteneurCard1)
 
     const imageCard1 = document.createElement("img")
@@ -125,7 +137,7 @@ function question2() {
     conteneurCard1.appendChild(imageCard1)
 
     const textCard1 = document.createElement("p")
-    textCard1.className = "text-center my-10"
+    textCard1.className = "text-center my-10 font-bold"
     textCard1.textContent = "Montage photo / vidéo"
     conteneurCard1.appendChild(textCard1)
 
@@ -134,7 +146,17 @@ function question2() {
     Card 2
      */
     const conteneurCard2 = document.createElement("div")
-    conteneurCard2.className = "bg-white rounded-2xl mx-20 shadow"
+    conteneurCard2.className = "bg-white rounded-2xl mx-20 shadow hover:bg-gray-100 hover:shadow-xl mb-6"
+    conteneurCard2.style.cursor = "pointer"
+    conteneurCard2.addEventListener("click", function () {
+        repQ2 = 2
+        conteneurCard2.classList.add("bg-gray-300")
+        conteneurCard2.classList.remove("hover:bg-gray-100")
+        conteneurCard1.classList.remove("bg-gray-300")
+        conteneurCard1.classList.add("hover:bg-gray-100")
+        conteneurCard3.classList.remove("bg-gray-300")
+        conteneurCard3.classList.add("hover:bg-gray-100")
+    })
     conteneurAllCards.appendChild(conteneurCard2)
 
     const imageCard2 = document.createElement("img")
@@ -142,7 +164,7 @@ function question2() {
     conteneurCard2.appendChild(imageCard2)
 
     const textCard2 = document.createElement("p")
-    textCard2.className = "text-center my-10"
+    textCard2.className = "text-center my-10 font-bold"
     textCard2.textContent = "Jeux vidéo"
     conteneurCard2.appendChild(textCard2)
 
@@ -151,7 +173,17 @@ function question2() {
     Card 3
     */
     const conteneurCard3 = document.createElement("div")
-    conteneurCard3.className = "bg-white rounded-2xl shadow"
+    conteneurCard3.className = "bg-white rounded-2xl shadow hover:bg-gray-100 hover:shadow-xl mb-6"
+    conteneurCard3.style.cursor = "pointer"
+    conteneurCard3.addEventListener("click", function () {
+        repQ2 = 3
+        conteneurCard3.classList.add("bg-gray-300")
+        conteneurCard3.classList.remove("hover:bg-gray-100")
+        conteneurCard2.classList.remove("bg-gray-300")
+        conteneurCard2.classList.add("hover:bg-gray-100")
+        conteneurCard1.classList.remove("bg-gray-300")
+        conteneurCard1.classList.add("hover:bg-gray-100")
+    })
     conteneurAllCards.appendChild(conteneurCard3)
 
     const imageCard3 = document.createElement("img")
@@ -159,15 +191,41 @@ function question2() {
     conteneurCard3.appendChild(imageCard3)
 
     const textCard3 = document.createElement("p")
-    textCard3.className = "text-center my-10"
+    textCard3.className = "text-center my-10 font-bold"
     textCard3.textContent = "Programmation"
     conteneurCard3.appendChild(textCard3)
 
 
     let conteneurButton = document.createElement("div")
-    conteneurButton.className = "flex justify-center mt-10"
+    conteneurButton.className = "flex justify-center"
     conteneurBody.appendChild(conteneurButton)
-    addButtonNext(conteneurButton, question3)
+
+
+    let button = document.createElement("button")
+    button.className = "shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-gradient-to-r from-yellow-500 to-red-500 text-white hover:from-red-500 hover:to-yellow-500 mb-6"
+    button.textContent = "Continuer"
+    button.onclick = function () {
+        if (repQ2 !== undefined)
+            question3()
+        else {
+            if (document.getElementById("errormessage") === null){
+                let errorMessage = document.createElement("div")
+                errorMessage.id = "errormessage"
+                errorMessage.className = "bg-red-500 rounded -mt-10 text-white shadow text-center mx-auto px-5 fixed md:absolute top-40 inset-x-2 text-xl opacity-60"
+                errorMessage.style.cursor = "pointer"
+                errorMessage.textContent = "Veuillez sélectionner au moins une réponse"
+                conteneurBody.appendChild(errorMessage)
+                errorMessage.addEventListener("click", function f() {
+                    errorMessage.remove()
+                })
+            }
+
+
+        }
+    }
+    conteneurButton.appendChild(button)
+
+
     addButtonReturn(conteneurButton, question1)
 
 }

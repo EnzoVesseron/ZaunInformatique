@@ -4,9 +4,9 @@ Insertion automatique du menu
 const conteneurMenu = document.querySelector('#menu')
 
 function createMenu(currentPage) {
-    conteneurMenu.classList.add('flex', 'flex-row', 'my-2' , 'justify-center' , 'md:justify-between' , 'flex-wrap' , 'items-start', 'z-10','relative');
+    conteneurMenu.classList.add('flex', 'flex-row', 'my-2' , 'justify-center' , 'md:justify-between' , 'flex-wrap' , 'items-start', 'z-10','relative','absolute');
     let div1 = document.createElement('div')
-    div1.classList.add('ml-5', 'bg-white', 'shadow', 'p-1', 'px-3', 'font-bold', 'rounded-2xl', 'mb-5', 'mb:mb-0')
+    div1.classList.add('ml-5', 'bg-white', 'shadow', 'p-1', 'px-3', 'font-bold', 'rounded-2xl', 'mb-2', 'mb:mb-0')
     div1.textContent = "ZaunInformatique"
     let div2 = document.createElement("div")
     div2.classList.add('md:mr-5', 'flex', 'flex-row', 'flex-wrap')
@@ -37,7 +37,7 @@ function createMenu(currentPage) {
     a4.href = "apropos.php"
 
     let asvg = document.createElement("a")
-    asvg.className = "p-1 px-3 bg-white shadow rounded-2xl ml-5 absolute right-5 top-2.5 md:relative md:right-auto md:top-auto"
+    asvg.className = "p-1 px-3 bg-white shadow rounded-2xl ml-5 absolute right-5 top-0 md:relative md:right-auto md:top-auto"
 
     let svg = document.createElement("img")
     svg.src = "../styles/img/global/account.svg"
