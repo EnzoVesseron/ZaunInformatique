@@ -1,5 +1,7 @@
 .idea/
 
+tailwind.css
+
 # Logs
 logs
 *.log
