@@ -95,14 +95,16 @@ function question1() {
     let conteneurButton = document.createElement("div")
     conteneurButton.className = "flex justify-center mt-10"
     conteneurBody.appendChild(conteneurButton)
-    addButtonNext(conteneurButton, question2)
+    addButtonNext(conteneurButton, function () {
+        repQ1 = document.querySelector("#priceInput").value
+        question2()
+    })
     addButtonReturn(conteneurButton, returnToStart)
 
 
 }
 
 function question2() {
-    repQ1 = document.querySelector("#priceInput").value
     videElement(conteneurBody)
     progressBar(2)
     addTitre("Quels usages en avez vous ?")
@@ -231,5 +233,122 @@ function question2() {
 }
 
 function question3() {
-    
+    videElement(conteneurBody)
+    progressBar(3)
+    addTitre("Esthétisme ou performances ?")
+    addSousTitre("Choisissez si vous préférez privilégier l’esthétique ou la performance pour votre PC")
+
+    conteneurBody.classList.remove("mt-80","md:mt-0")
+    conteneurBody.classList.add("mt-36","md:mt-0")
+
+    const conteneurAllCards = document.createElement("div")
+    conteneurAllCards.className = "flex flex-wrap justify-center mt-10"
+    conteneurBody.appendChild(conteneurAllCards)
+
+    /*
+        Card 1
+     */
+    const conteneurCard1 = document.createElement("div")
+    conteneurCard1.style.cursor = "pointer"
+    conteneurCard1.className = "bg-white rounded-2xl shadow hover:bg-gray-100 hover:shadow-xl mb-10"
+    conteneurCard1.addEventListener("click", function () {
+        repQ3 = 1
+        conteneurCard1.classList.add("bg-gray-300")
+        conteneurCard1.classList.remove("hover:bg-gray-100")
+        conteneurCard2.classList.remove("bg-gray-300")
+        conteneurCard2.classList.add("hover:bg-gray-100")
+    })
+    conteneurAllCards.appendChild(conteneurCard1)
+
+    const imageCard1 = document.createElement("img")
+    imageCard1.className = ""
+    imageCard1.src = "./styles/img/questionnaire/esthetisme.png"
+    conteneurCard1.appendChild(imageCard1)
+
+    const textCard1 = document.createElement("p")
+    textCard1.className = "text-center my-10 font-bold"
+    textCard1.textContent = "Esthétisme"
+    conteneurCard1.appendChild(textCard1)
+
+
+    /*
+    Card 2
+     */
+    const conteneurCard2 = document.createElement("div")
+    conteneurCard2.className = "bg-white rounded-2xl mx-20 shadow hover:bg-gray-100 hover:shadow-xl mb-6"
+    conteneurCard2.style.cursor = "pointer"
+    conteneurCard2.addEventListener("click", function () {
+        repQ3 = 2
+        conteneurCard2.classList.add("bg-gray-300")
+        conteneurCard2.classList.remove("hover:bg-gray-100")
+        conteneurCard1.classList.remove("bg-gray-300")
+        conteneurCard1.classList.add("hover:bg-gray-100")
+    })
+    conteneurAllCards.appendChild(conteneurCard2)
+
+    const imageCard2 = document.createElement("img")
+    imageCard2.src = "./styles/img/questionnaire/performances.jpg"
+    conteneurCard2.appendChild(imageCard2)
+
+    const textCard2 = document.createElement("p")
+    textCard2.className = "text-center my-10 font-bold"
+    textCard2.textContent = "Performances"
+    conteneurCard2.appendChild(textCard2)
+
+    let conteneurButton = document.createElement("div")
+    conteneurButton.className = "flex justify-center"
+    conteneurBody.appendChild(conteneurButton)
+
+
+    let button = document.createElement("button")
+    button.className = "shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-gradient-to-r from-yellow-500 to-red-500 text-white hover:from-red-500 hover:to-yellow-500 mb-6"
+    button.textContent = "Continuer"
+    button.onclick = function () {
+        if (repQ3 !== undefined)
+            finQuestionnaire()
+        else {
+            if (document.getElementById("errormessage") === null){
+                let errorMessage = document.createElement("div")
+                errorMessage.id = "errormessage"
+                errorMessage.className = "bg-red-500 rounded -mt-10 text-white shadow text-center mx-auto px-5 fixed md:absolute top-40 inset-x-2 text-xl opacity-60"
+                errorMessage.style.cursor = "pointer"
+                errorMessage.textContent = "Veuillez sélectionner au moins une réponse"
+                conteneurBody.appendChild(errorMessage)
+                errorMessage.addEventListener("click", function f() {
+                    errorMessage.remove()
+                })
+            }
+
+
+        }
+    }
+    conteneurButton.appendChild(button)
+
+
+    addButtonReturn(conteneurButton, question2)
+}
+
+function finQuestionnaire() {
+    videElement(conteneurBody)
+    progressBar(4)
+    addTitre("Bravo vous avez terminé")
+    addSousTitre("Cliquez sur le bouton continuer pour afficher les configs recommandées")
+
+    conteneurBody.classList.remove("mt-80","md:mt-0")
+    conteneurBody.classList.add("-mt-5")
+
+    const img = document.createElement("img")
+    img.src = "../styles/img/questionnaire/fin.png"
+    img.className = "max-w-lg mx-auto"
+    conteneurBody.appendChild(img)
+
+    let conteneurButton = document.createElement("div")
+    conteneurButton.className = "flex justify-center"
+    conteneurBody.appendChild(conteneurButton)
+
+    addButtonNext(conteneurButton, function () {
+        
+    })
+    addButtonReturn(conteneurButton, question3)
+
 }
