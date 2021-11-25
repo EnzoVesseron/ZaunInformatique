@@ -23,15 +23,8 @@ $myPage->appendContent(<<<HTML
             <button onclick="question1()" class="shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-gradient-to-r from-yellow-500 to-red-500 text-white hover:from-red-500 hover:to-yellow-500">Commencer à créer ma config</button>
             <button class="shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-white" >Pas besoin d'aide je suis un pro !</button>
         </div>
-        
-
     </section>
 
-
-
-
-
-    
     <script src="./scripts/menu.js"></script>
     <script src="./scripts/questionnaire.js"></script>
     <script>createMenu("surmesure");</script>
