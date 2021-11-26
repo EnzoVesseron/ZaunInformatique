@@ -97,11 +97,12 @@ function question1() {
     conteneurButton.className = "flex justify-center mt-10"
     conteneurBody.appendChild(conteneurButton)
     addButtonNext(conteneurButton, function () {
-        if (document.querySelector("#priceInput").value >= 500)
+        if (document.querySelector("#priceInput").value < 500)
             repQ1 = document.querySelector("#priceInput").value
-        else
+        else {
             repQ1 = 500
-        question2()
+            question2()
+        }
 
     })
     addButtonReturn(conteneurButton, returnToStart)
