@@ -73,6 +73,7 @@ function question1() {
     priceInput.id = "priceInput"
     priceInput.type = "number"
     priceInput.step = "100"
+    priceInput.min = "500"
     priceInput.defaultValue = "1000"
     priceInput.className = "mx-auto w-20 my-5 text-center rounded font-bold shadow"
     conteneurBody.appendChild(priceInput)
@@ -96,8 +97,12 @@ function question1() {
     conteneurButton.className = "flex justify-center mt-10"
     conteneurBody.appendChild(conteneurButton)
     addButtonNext(conteneurButton, function () {
-        repQ1 = document.querySelector("#priceInput").value
+        if (document.querySelector("#priceInput").value >= 500)
+            repQ1 = document.querySelector("#priceInput").value
+        else
+            repQ1 = 500
         question2()
+
     })
     addButtonReturn(conteneurButton, returnToStart)
 
