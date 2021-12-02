@@ -20,8 +20,8 @@ $myPage->appendContent(<<<HTML
                 <input type="password" class="shadow rounded">
             </div>
             <div class="d-flex justify-center">
-                <button type="submit" class=" block shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-gradient-to-r from-yellow-500 to-red-500 text-white hover:from-red-500 hover:to-yellow-500">Se connecter</button>
-                <button onclick="document.location.replace('inscription.php');" class="block shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-white" >Je n'ai pas encore de compte</button>
+                    <button type="submit" class="mx-auto block shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-gradient-to-r from-yellow-500 to-red-500 text-white hover:from-red-500 hover:to-yellow-500">S'inscrire</button>
+                    <button onclick="document.location.replace('inscription.php');" class="mx-auto block shadow rounded-2xl p-1 px-3 font-medium block mx-2 mt-5 bg-white" >Je n'ai pas encore de compte</button>
             </div>
         </form>
     </section>

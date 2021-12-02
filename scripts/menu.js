@@ -38,6 +38,7 @@ function createMenu(currentPage) {
 
     let asvg = document.createElement("a")
     asvg.className = "p-1 px-3 bg-white shadow rounded-2xl ml-5 absolute right-5 top-0 md:relative md:right-auto md:top-auto"
+    asvg.href = "profil.php"
 
     let svg = document.createElement("img")
     svg.src = "../styles/img/global/account.svg"
