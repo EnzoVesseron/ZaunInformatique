@@ -9,7 +9,7 @@ $myPage->appendCssUrl("./styles/css/global.css");
 $myPage->appendContent(<<<HTML
     <header id="menu"></header>
     
-    <section class="flex flex-col justify-center h-full -mt-40 my-auto">
+    <section class="flex flex-col justify-center -mt-20 h-full my-auto">
         <h1 class="text-center text-2xl font-bold">Connexion</h1>
         <img src="./styles/img/connexion_inscriptions/chat%201.png" class="w-80 mx-auto -mt-14">
         <form class="">

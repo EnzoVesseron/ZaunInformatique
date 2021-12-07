@@ -11,22 +11,21 @@ class SecureUserAuthentification
 
     public function isEmailAlreadyExist(string $email): bool
     {
-        var_dump($email);
-        $result = false;
+        $bool = false;
         Session::start();
 
         $request = MyPDO::getInstance()->prepare(<<<SQL
-        SELECT email
+        SELECT EMAIL
         from CLIENT
 SQL);
+        $request->execute();
         $resultrequest = $request->fetchAll();
-        var_dump($resultrequest);
-        foreach ($resultrequest as $result) {
-            if ($result === $email)
-                $result = true;
-                break;
+
+        foreach ($resultrequest as$result) {
+            if ($result['EMAIL'] === $email)
+                $bool = true;
         }
-        return $result;
+        return (bool)$bool;
     }
 
     public function inscription()
@@ -37,16 +36,23 @@ SQL);
             $prenom = htmlspecialchars($_POST['prenom']);
             $code = htmlspecialchars($_POST['code']);
             $request = MyPDO::getInstance()->prepare(<<<SQL
-                INSERT INTO `CLIENT`(`NOM`, `PREMON`, `EMAIL`, `MDP`) VALUES (:nom,:prenom,:email,:mdp)
+                INSERT INTO `CLIENT`(`NOM`, `PRENOM`, `EMAIL`, `MDP`) VALUES (:nom,:prenom,:email,:mdp)
             SQL);
             $request->bindValue(":nom",$nom);
             $request->bindValue(":prenom",$prenom);
             $request->bindValue(":email",$email);
             $request->bindValue(":mdp",$code);
             $request->execute();
-            $user = $request->fetch();
 
-            $aUser = new User($user);
+            $request = MyPDO::getInstance()->prepare(<<<SQL
+            SELECT *
+            FROM CLIENT
+            WHERE :email = `email`
+            SQL);
+
+            $request->bindValue(":email",$email);
+            $request->execute();
+            $aUser = new User($request->fetch());
             $this->setUser($aUser);
 
             header("Location: ../../../accueil.php");

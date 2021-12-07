@@ -21,31 +21,32 @@ $myPage->appendContent(<<<HTML
 HTML);
 
 
-if ($_GET['error'] = "email") {
+if (isset($_GET['error'])){
+if ($_GET['error'] === "email") {
     $myPage->appendContent(<<<HTML
 <span class="text-red-600 font-bold text-center">L'email est déjà utilisé</span>
 HTML);
-}
+}}
 
 
 $myPage->appendContent(<<<HTML
                 </div>
                 <label class="ml-1 font-bold">Email:</label>
-                <input type="email" name="mail" class="shadow rounded">
+                <input type="email" name="mail" class="shadow rounded" required>
                 <div class="flex mt-6 w-80 mx-auto ">
                     <div class="flex flex-col w-30">
                         <label class="ml-1 font-bold">Nom:</label>
-                        <input type="text" name="nom" class="shadow rounded">
+                        <input type="text" name="nom" class="shadow rounded" required >
                     </div>
                     <div class="flex flex-col ">
                         <label class="ml-1 font-bold">Prenom:</label>
-                        <input type="text" name="prenom" class="shadow rounded">
+                        <input type="text" name="prenom" class="shadow rounded" required>
                     </div>
                 </div>
                 <label class="ml-1 font-bold mt-6">Mot de passe:</label>
-                <input type="password" class="shadow rounded">
+                <input type="password" class="shadow rounded required">
                 <label class="ml-1 font-bold mt-6">Répéter le mot de passe:</label>
-                <input type="password" name="passwordRepeat"  class="shadow rounded" >
+                <input type="password" name="passwordRepeat"  class="shadow rounded" required>
                 <input type="password" name="code" hidden>
             </div>
             <div class="d-flex justify-center">
@@ -59,7 +60,7 @@ $myPage->appendContent(<<<HTML
     <script>createMenu("");</script>
     <script type='text/javascript' src='js/sha512.js'></script>
     <script>
-    document.querySelector('#inscription').onsubmit = function () {
+    document.querySelector('#inscription').addEventListener("submit", (event) => {
         let password = document.querySelector("input[name='password']")
         let passwordRepeat = document.querySelector("input[name='passwordRepeat']")
         let codeInput = document.querySelector("input[name='code']")
@@ -67,9 +68,7 @@ $myPage->appendContent(<<<HTML
             event.preventDefault()
             document.querySelector("#error").innerHTML = "<span class='text-red-900'>Les mots de passe ne correspondent pas</span>"
         }else {
-            codeInput.value = CryptoJS.SHA512(password.value).toString();
-            
-            
+            codeInput.value = CryptoJS.SHA512(password.value).toString();  
         }
             
     })

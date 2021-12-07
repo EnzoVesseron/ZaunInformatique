@@ -2,4 +2,4 @@
 
 require_once 'MyPDO.template.php';
 
-MyPDO::setConfiguration('mysql:host=89.234.180.61:3306;dbname=zauninformatique;charset=utf8', 'Enzo', 'MilK@-08');
+MyPDO::setConfiguration('mysql:host=178.32.103.15:3306;dbname=zauninformatique;charset=utf8', 'administrateur', 'jh59pe64&*');
