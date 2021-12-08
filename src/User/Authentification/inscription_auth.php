@@ -7,5 +7,6 @@ $auth = new SecureUserAuthentification();
 if ($auth->isEmailAlreadyExist($_POST['mail'])) {
     header("Location: ../../../inscription.php?error=email");
 }else {
-    $auth->inscription();
+    var_dump($_POST);
+    //$auth->inscription();
 }
